@@ -4,7 +4,10 @@ open NUnit.Framework
 open FsUnit
 
 type FizzBuzz() =
-   member x.Output input = input.ToString()
+    member x.Output input = 
+        match input with
+        | 3 -> "Fizz"
+        | _ -> input.ToString()
    
 [<TestFixture>] 
 type ``Given a FizzBuzz`` ()=
@@ -17,3 +20,7 @@ type ``Given a FizzBuzz`` ()=
     [<Test>] 
     member test. ``2 begets "2".`` ()=
         fb.Output 2 |> should equal "2"
+
+    [<Test>]
+    member test. ``3 begets "Fizz".`` ()=
+        fb.Output 3 |> should equal "Fizz"
