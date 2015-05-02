@@ -7,7 +7,7 @@ type FizzBuzz() =
     member x.Output input = 
         match input with
         | 5 -> "Buzz"
-        | 3 -> "Fizz"
+        | input when input % 3 = 0 -> "Fizz"
         | _ -> input.ToString()
    
 [<TestFixture>] 
@@ -29,3 +29,7 @@ type ``Given a FizzBuzz`` ()=
     [<Test>]
     member test. ``5 begets "Buzz".`` ()=
         fb.Output 5 |> should equal "Buzz"
+
+    [<Test>]
+    member test. ``6 begets "Fizz".`` ()=
+        fb.Output 6 |> should equal "Fizz"
