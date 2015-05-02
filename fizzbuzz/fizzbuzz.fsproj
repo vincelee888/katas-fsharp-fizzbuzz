@@ -52,6 +52,7 @@
     <Compile Include="FizzBuzz.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
+    <Compile Include="FizzBuzz_Tests.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
