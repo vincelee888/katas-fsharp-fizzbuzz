@@ -6,6 +6,7 @@ open FsUnit
 type FizzBuzz() =
     member x.Output input = 
         match input with
+        | input when input % 5 = 0 && input % 3 = 0 -> "FizzBuzz"
         | input when input % 3 = 0 -> "Fizz"
         | input when input % 5 = 0 -> "Buzz"
         | _ -> input.ToString()
@@ -37,3 +38,7 @@ type ``Given a FizzBuzz`` ()=
     [<Test>]
     member test. ``10 begets "Buzz".`` ()=
         fb.Output 10 |> should equal "Buzz"
+
+    [<Test>]
+    member test. ``15 begets "FizzBuzz".`` ()=
+        fb.Output 15 |> should equal "FizzBuzz"
