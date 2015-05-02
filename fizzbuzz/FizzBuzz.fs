@@ -15,30 +15,12 @@ type FizzBuzz() =
 type ``Given a FizzBuzz`` ()=
     let fb = new FizzBuzz()
 
-    [<Test>] 
-    member test. ``1 begets "1".`` ()=
-        fb.Output 1 |> should equal "1"
-
-    [<Test>] 
-    member test. ``2 begets "2".`` ()=
-        fb.Output 2 |> should equal "2"
-
-    [<Test>]
-    member test. ``3 begets "Fizz".`` ()=
-        fb.Output 3 |> should equal "Fizz"
-
-    [<Test>]
-    member test. ``5 begets "Buzz".`` ()=
-        fb.Output 5 |> should equal "Buzz"
-
-    [<Test>]
-    member test. ``6 begets "Fizz".`` ()=
-        fb.Output 6 |> should equal "Fizz"
-
-    [<Test>]
-    member test. ``10 begets "Buzz".`` ()=
-        fb.Output 10 |> should equal "Buzz"
-
-    [<Test>]
-    member test. ``15 begets "FizzBuzz".`` ()=
-        fb.Output 15 |> should equal "FizzBuzz"
+    [<TestCase(1, "1")>] 
+    [<TestCase(2, "2")>] 
+    [<TestCase(3, "Fizz")>] 
+    [<TestCase(5, "Buzz")>] 
+    [<TestCase(6, "Fizz")>] 
+    [<TestCase(10, "Buzz")>] 
+    [<TestCase(15, "FizzBuzz")>] 
+    member test. ``input begets output.`` (input, output)=
+        fb.Output input |> should equal output
